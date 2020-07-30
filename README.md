@@ -1,4 +1,5 @@
-# nbdev template
+# pySplitting
 
-Use this template to more easily create your nbdev project.
+A project to have python code that generates the order conditions for exponential splitting methods with the techniques of M. Thalhammer .
+
 
