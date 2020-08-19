@@ -4,7 +4,8 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"findpos": "00_core.ipynb",
          "isstrictlyascending": "00_core.ipynb",
-         "alpha": "00_core.ipynb"}
+         "alpha": "00_core.ipynb",
+         "CreateMuVectors": "00_core.ipynb"}
 
 modules = ["core.py"]
 
