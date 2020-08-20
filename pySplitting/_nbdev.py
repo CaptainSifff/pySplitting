@@ -9,8 +9,8 @@ index = {"findpos": "00_core.ipynb",
 
 modules = ["core.py"]
 
-doc_url = "https://CaptainSifff.github.io/pysplitting/"
+doc_url = "https://CaptainSifff.github.io/pySplitting/"
 
-git_url = "https://github.com/CaptainSifff/pysplitting/tree/master/"
+git_url = "https://github.com/CaptainSifff/pySplitting/tree/master/"
 
 def custom_doc_links(name): return None
