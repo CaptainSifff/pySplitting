@@ -66,30 +66,14 @@ nb_path: "00_core.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">factorial</span> <span class="k">as</span> <span class="n">fact</span>
 <span class="kn">import</span> <span class="nn">array</span> <span class="k">as</span> <span class="nn">arr</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">Integral</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">x</span><span class="p">)</span>
-<span class="n">Eq</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+<span class="c1">#x = symbols(&#39;x&#39;)</span>
+<span class="c1">#a = Integral(cos(x)*exp(x),x)</span>
+<span class="c1">#Eq(a,a.doit())</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_latex output_subarea output_execute_result">
-$\displaystyle \int e^{x} \cos{\left(x \right)}\, dx = \frac{e^{x} \sin{\left(x \right)}}{2} + \frac{e^{x} \cos{\left(x \right)}}{2}$
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -103,26 +87,10 @@ $\displaystyle \int e^{x} \cos{\left(x \right)}\, dx = \frac{e^{x} \sin{\left(x 
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[-1.22474487139159, 1.22474487139159]</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -147,7 +115,7 @@ $\displaystyle \int e^{x} \cos{\left(x \right)}\, dx = \frac{e^{x} \sin{\left(x 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="findpos" class="doc_header"><code>findpos</code><a href="https://github.com/CaptainSifff/pysplitting/tree/master/pysplitting/core.py#L7" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>findpos</code>(<strong><code>lam</code></strong>)</p>
+<h4 id="findpos" class="doc_header"><code>findpos</code><a href="__main__.py#L8" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>findpos</code>(<strong><code>lam</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -243,7 +211,7 @@ $\displaystyle \int e^{x} \cos{\left(x \right)}\, dx = \frac{e^{x} \sin{\left(x 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="isstrictlyascending" class="doc_header"><code>isstrictlyascending</code><a href="https://github.com/CaptainSifff/pysplitting/tree/master/pysplitting/core.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>isstrictlyascending</code>(<strong><code>lam</code></strong>)</p>
+<h4 id="isstrictlyascending" class="doc_header"><code>isstrictlyascending</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L25" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>isstrictlyascending</code>(<strong><code>lam</code></strong>)</p>
 </blockquote>
 <p>This determines whether the index string is a strictly ascending sequence</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>lam : an indexable object of things that are comparable. Usually an array of integers</p>
@@ -309,7 +277,7 @@ $\displaystyle \int e^{x} \cos{\left(x \right)}\, dx = \frac{e^{x} \sin{\left(x 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="alpha" class="doc_header"><code>alpha</code><a href="https://github.com/CaptainSifff/pysplitting/tree/master/pysplitting/core.py#L41" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>alpha</code>(<strong><code>lam</code></strong>)</p>
+<h4 id="alpha" class="doc_header"><code>alpha</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L46" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>alpha</code>(<strong><code>lam</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -378,6 +346,329 @@ $\displaystyle \int e^{x} \cos{\left(x \right)}\, dx = \frac{e^{x} \sin{\left(x 
 <pre>array(&#39;i&#39;)
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{1}{2}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fact</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle 295232799039604140847618609643520000000$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="CreateMuVectors" class="doc_header"><code>CreateMuVectors</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CreateMuVectors</code>(<strong><code>p</code></strong>, <strong><code>k</code></strong>)</p>
+</blockquote>
+<p>This function creates the set of possible $$\mu$$ vectors.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>p : the considered order
+k : 1 &lt;=k&lt;=p</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>array : A list of multiindices</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">CreateMuVectors</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (2, 0)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">CreateLyndonIndices</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function creates the set of Lyndon indices</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p : the considered order</span>
+<span class="sd">    k : 1 &lt;=k&lt;=p</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array : A list of Lyndon multiindices</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">retval</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="c1">#create the alphabet</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+            <span class="nb">str</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+                <span class="nb">str</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">retval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="c1"># repeat w to get a string of length n</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+            <span class="n">w</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="n">m</span><span class="p">])</span>
+        <span class="c1"># remove the last character as long as it is equal to the largest character in S</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">w</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    
+    <span class="n">retval2</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">retval</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">p</span><span class="p">:</span>
+            <span class="n">retval2</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">num</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">el</span><span class="p">])</span><span class="c1"># subtract 1 from the final result. FIXME: this could be optimized</span>
+    <span class="k">return</span> <span class="n">retval2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">CreateLyndonIndices</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[0, 1], [0, 2], [0, 3], [1, 2]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">CreateEquation</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">bvec</span><span class="p">,</span> <span class="n">cvec</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function gives the Coefficient for a particular multiindex mu.</span>
+<span class="sd">   It is the coefficient of a Len (mu) long product of iterated </span>
+<span class="sd">   commutators [A, B]_(mu_k).</span>
+
+<span class="sd">Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mu : a multiindex</span>
+<span class="sd">    bvec : a string of symbols</span>
+<span class="sd">    cvec : a string of symbols</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    expr : a symbolic expression, a polynomial in terms of the contents of bvec and cvec</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Product</span>
+<span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;k,l&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sum</span><span class="p">(</span><span class="n">k</span><span class="p">,(</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-bc43e196c85b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> sympy <span class="ansi-green-fg">import</span> Product
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>k<span class="ansi-blue-fg">,</span>l<span class="ansi-blue-fg">=</span>symbols<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;k,l&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>Sum<span class="ansi-blue-fg">(</span>k<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">(</span>k<span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>doit<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;symbols&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mu</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<span class="c1">#Product(1/Sum(mu[k],(k,l,3)),(l,1,3)).doit()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
 </div>
 
 </div>
