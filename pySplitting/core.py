@@ -34,17 +34,22 @@ def isstrictlyascending(lam):
     bool : true if the sequence is strictly ascending, else false.
     """
     retval = True
-    i = 0
-    while (i < len(lam)-1) and retval == True:
-        if lam[i] < lam[i+1]:
-            i = i+1
-        else:
-            retval = False
+    for i in range(0, len(lam)-1):
+#        print(lam[i],lam[i+1])
+        retval = retval and lam[i] < lam[i+1]
+#    i = 0
+#    while (i < len(lam)-1) and retval == True:
+#        if StrictLessThan(lam[i], lam[i+1]):
+#        if sympify(lam[i] < lam[i+1]):
+#            i = i+1
+#        else:
+#            retval = False
     return retval
 
 # Cell
 def alpha(lam):
     retval = 1
+#    isa = isstrictlyascending(lam)
     if (len(lam) > 1) and not isstrictlyascending(lam):
         pos = findpos(lam)
         retval = 1/fact(pos+1)*alpha(lam[pos+1:])
@@ -109,7 +114,7 @@ def CreateLyndonIndices(p,k):
 
 # Cell
 def CreateEquation(mu, bvec, cvec):
-    """This function gives the Coefficient for a particular multiindex mu.
+    """This function gives the coefficient for a particular multiindex mu.
    It is the coefficient of a Len (mu) long product of iterated
    commutators [A, B]_(mu_k).
 
@@ -117,10 +122,22 @@ Parameters
     ----------
     mu : a multiindex
     bvec : a string of symbols
-    cvec : a string of symbols
+    cvec : a string of symbols(usually the partial sums of the avec)
 
     Returns
     -------
     expr : a symbolic expression, a polynomial in terms of the contents of bvec and cvec
 """
     k = len(mu)
+    retval1=1
+    for l in range(k):
+        retval1=retval1*1/sympify(sum(mu[l:])+k-l)
+    print(retval1)
+    retval2=0
+    for it in itertools.combinations_with_replacement([*range(len(bvec),0,-1)],r=k):
+        retvalprod = 1
+        for i in range(k):
+            retvalprod = retvalprod*bvec[it[i]-1]*cvec[it[i]-1]**mu[i]
+        retval2=retval2 + alpha(it)*retvalprod
+
+    return retval1-retval2
