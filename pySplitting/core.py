@@ -5,12 +5,23 @@ __all__ = ['findpos', 'isstrictlyascending', 'alpha', 'CreateMuVectors', 'Create
 
 # Cell
 
-from sympy import factorial as fact
-from itertools import product
+from sympy import *
+from sympy import sympify
+from itertools import *
 
 
 # Mathematica counts from 1, python from zero!!!!!!
 def findpos(lam):
+    """This determines whether the index string is a strictly ascending sequence.
+
+    Parameters
+    ----------
+    lam : an indexable object of things that are comparable. Usually an array of integers
+
+    Returns
+    -------
+    bool : the position in the string where two ints are equal.
+    """
     retval = -1
     i = 0
     while (i < len(lam)-1) and (retval == -1):
@@ -64,7 +75,7 @@ def alpha(lam):
     retval = 1
     if (len(lam) > 1) and not isstrictlyascending(lam):
         pos = findpos(lam)
-        retval = 1/fact(pos+1)*alpha(lam[pos+1:])
+        retval = 1/factorial(pos+1)*alpha(lam[pos+1:])
     return retval
 
 # Cell
@@ -146,7 +157,7 @@ Parameters
         retval1=retval1*1/sympify(sum(mu[l:])+k-l)
     #print(retval1)
     retval2=0
-    for it in itertools.combinations_with_replacement([*range(len(bvec),0,-1)],r=k):
+    for it in combinations_with_replacement([*range(len(bvec),0,-1)],r=k):
         retvalprod = 1
         for i in range(k):
             retvalprod = retvalprod*bvec[it[i]-1]*cvec[it[i]-1]**mu[i]
@@ -172,7 +183,6 @@ def CreateConditions(p,avec,bvec,indexgenerator=CreateLyndonIndices):
     Returns
     -------
     array : An array of Equations that have to be satisfied to fulfill the requested order p.
-
     """
     cvec=[*accumulate(avec)]
     cvec[-1]=1
