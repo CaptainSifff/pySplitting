@@ -7,7 +7,8 @@ index = {"findpos": "00_core.ipynb",
          "alpha": "00_core.ipynb",
          "CreateMuVectors": "00_core.ipynb",
          "CreateLyndonIndices": "00_core.ipynb",
-         "CreateEquation": "00_core.ipynb"}
+         "CreateEquation": "00_core.ipynb",
+         "CreateConditions": "00_core.ipynb"}
 
 modules = ["core.py"]
 

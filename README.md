@@ -22,3 +22,10 @@ alpha([1,1,1])
 $\displaystyle \frac{1}{6}$
 
 
+from sympy import symarray
+
+avec=[*symarray('a',3)]
+bvec=[*symarray('b',3)]
+print(CreateConditions(3,avec,bvec))
+print("=========================")
+print(CreateConditions(3,avec,bvec,CreateMuVectors))
