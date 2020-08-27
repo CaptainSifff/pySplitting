@@ -299,6 +299,282 @@ First the fourth order method from McLachlan's 1995 paper:</p>
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next we check the popular S_6 4 method by from Blanes2002("Practical symplectic partitioned Runge–Kutta and Runge–Kutta–Nyström methods")
+Since it's a symmetric method it is sufficient to work with the third order equations.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">)]</span>
+<span class="n">tvec</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tvec</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="n">tvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">tvec</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="n">tvec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">tvec</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">tvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">tvec</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">vvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">)]</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">vvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">vvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="n">vvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="n">vvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="n">vvec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indeterminates: &quot;</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">S64conds</span><span class="o">=</span><span class="n">CreateConditions</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">S64conds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Indeterminates:  [t_0, t_1, t_2, -2*t_0 - 2*t_1 - 2*t_2 + 1, t_2, t_1, t_0] [v_0, v_1, -v_0 - v_1 + 1/2, -v_0 - v_1 + 1/2, v_1, v_0, 0]
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>[True,
+ True,
+ Eq(-t_0*v_0 - v_0*(1 - t_0) - v_1*(t_0 + t_1) - v_1*(-t_0 - t_1 + 1) - (t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) + 1/2, 0),
+ Eq(-t_0**2*v_0 - v_0*(1 - t_0)**2 - v_1*(t_0 + t_1)**2 - v_1*(-t_0 - t_1 + 1)**2 - (t_0 + t_1 + t_2)**2*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1)**2 + 1/3, 0),
+ Eq(-3*t_0*v_0**2/2 - 2*t_0*v_0*v_1 - 2*t_0*v_0*(-v_0 - v_1 + 1/2) - v_0**2*(1 - t_0)/2 - v_0*v_1*(t_0 + t_1) - v_0*v_1*(-t_0 - t_1 + 1) - v_0*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_0*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*v_1**2*(t_0 + t_1)/2 - v_1**2*(-t_0 - t_1 + 1)/2 - 2*v_1*(t_0 + t_1)*(-v_0 - v_1 + 1/2) - v_1*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_1*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2)**2/2 - (-v_0 - v_1 + 1/2)**2*(-t_0 - t_1 - t_2 + 1)/2 + 1/6, 0)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And now let's see whether it works</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span><span class="o">=</span><span class="p">[</span><span class="n">it</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span><span class="o">.</span><span class="n">subs</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;t_0&#39;</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="mf">0.0792036964311956</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s1">&#39;t_1&#39;</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="mf">0.35317290604977410</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s1">&#39;t_2&#39;</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0420650803577195</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s1">&#39;v_0&#39;</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="mf">0.2095151066133620</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s1">&#39;v_1&#39;</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="o">-</span><span class="mf">0.143851773179818</span><span class="p">))</span>
+         <span class="p">])</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">S64conds</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[True, True, True, False, False]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">S64conds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[True, True, Eq(-t_0*v_0 - v_0*(1 - t_0) - v_1*(t_0 + t_1) - v_1*(-t_0 - t_1 + 1) - (t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) + 1/2, 0), Eq(-t_0**2*v_0 - v_0*(1 - t_0)**2 - v_1*(t_0 + t_1)**2 - v_1*(-t_0 - t_1 + 1)**2 - (t_0 + t_1 + t_2)**2*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1)**2 + 1/3, 0), Eq(-3*t_0*v_0**2/2 - 2*t_0*v_0*v_1 - 2*t_0*v_0*(-v_0 - v_1 + 1/2) - v_0**2*(1 - t_0)/2 - v_0*v_1*(t_0 + t_1) - v_0*v_1*(-t_0 - t_1 + 1) - v_0*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_0*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*v_1**2*(t_0 + t_1)/2 - v_1**2*(-t_0 - t_1 + 1)/2 - 2*v_1*(t_0 + t_1)*(-v_0 - v_1 + 1/2) - v_1*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_1*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2)**2/2 - (-v_0 - v_1 + 1/2)**2*(-t_0 - t_1 - t_2 + 1)/2 + 1/6, 0)]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Complex-Hermitian-Methods-where-one-set-of-coefficients-is-real">Complex Hermitian Methods where one set of coefficients is real<a class="anchor-link" href="#Complex-Hermitian-Methods-where-one-set-of-coefficients-is-real"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section we check our new hermitian methods where one set of coefficients is real.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CHR_3-3">CHR_3 3<a class="anchor-link" href="#CHR_3-3"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">bvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">tvec</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">vvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">vvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">vvec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">vvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indeterminates: &quot;</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">CHR33conds</span><span class="o">=</span><span class="n">CreateConditions</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">CHR33conds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Indeterminates:  [a_0 + I*b_0, a_1 + I*b_1, a_1 - I*b_1, a_0 - I*b_0] [v_0, 1 - 2*v_0, v_0, 0]
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>[Eq(2*a_0 + 2*a_1, 1),
+ True,
+ Eq(-v_0*(a_0 + I*b_0) - v_0*(a_0 + 2*a_1 + I*b_0) - (1 - 2*v_0)*(a_0 + a_1 + I*b_0 + I*b_1) + 1/2, 0),
+ Eq(-v_0*(a_0 + I*b_0)**2 - v_0*(a_0 + 2*a_1 + I*b_0)**2 - (1 - 2*v_0)*(a_0 + a_1 + I*b_0 + I*b_1)**2 + 1/3, 0),
+ Eq(-3*v_0**2*(a_0 + I*b_0)/2 - v_0**2*(a_0 + 2*a_1 + I*b_0)/2 - v_0*(1 - 2*v_0)*(a_0 + I*b_0) - v_0*(1 - 2*v_0)*(a_0 + a_1 + I*b_0 + I*b_1) - (1 - 2*v_0)**2*(a_0 + a_1 + I*b_0 + I*b_1)/2 + 1/6, 0)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span><span class="o">=</span><span class="p">[</span><span class="n">it</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span><span class="o">.</span><span class="n">subs</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;a_0&#39;</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">24</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s1">&#39;a_1&#39;</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">8</span><span class="p">)),</span>
+      <span class="p">(</span><span class="s1">&#39;b_0&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">24</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s1">&#39;b_1&#39;</span><span class="p">,</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">8</span><span class="p">)),</span>
+          <span class="p">(</span><span class="s1">&#39;v_0&#39;</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+         <span class="p">])</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">S64conds</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[True, True, True, True, True]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CHR_5-4">CHR_5 4<a class="anchor-link" href="#CHR_5-4"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CHR_9-5">CHR_9 5<a class="anchor-link" href="#CHR_9-5"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CHR_15-6">CHR_15 6<a class="anchor-link" href="#CHR_15-6"> </a></h3>
+</div>
+</div>
+</div>
 </div>
  
 

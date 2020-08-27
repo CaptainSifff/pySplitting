@@ -100,3 +100,112 @@ print(McLachlanconds4)
     [True, True, True, True, True, True, True, True]
 
 
+
+Next we check the popular S_6 4 method by from Blanes2002("Practical symplectic partitioned Runge–Kutta and Runge–Kutta–Nyström methods")
+Since it's a symmetric method it is sufficient to work with the third order equations.
+
+```python
+tvec=[*symarray('t',7)]
+tvec[6]=tvec[0]
+tvec[5]=tvec[1]
+tvec[4]=tvec[2]
+tvec[3]=1-2*(tvec[0]+tvec[1]+tvec[2])
+vvec=[*symarray('v',7)]
+vvec[2]=(1-2*(vvec[0]+vvec[1]))/2
+vvec[6]=0
+vvec[5]=vvec[0]
+vvec[4]=vvec[1]
+vvec[3]=vvec[2]
+print("Indeterminates: ",tvec,vvec)
+S64conds=CreateConditions(3,tvec,vvec)
+display(S64conds)
+```
+
+    Indeterminates:  [t_0, t_1, t_2, -2*t_0 - 2*t_1 - 2*t_2 + 1, t_2, t_1, t_0] [v_0, v_1, -v_0 - v_1 + 1/2, -v_0 - v_1 + 1/2, v_1, v_0, 0]
+
+
+
+    [True,
+     True,
+     Eq(-t_0*v_0 - v_0*(1 - t_0) - v_1*(t_0 + t_1) - v_1*(-t_0 - t_1 + 1) - (t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) + 1/2, 0),
+     Eq(-t_0**2*v_0 - v_0*(1 - t_0)**2 - v_1*(t_0 + t_1)**2 - v_1*(-t_0 - t_1 + 1)**2 - (t_0 + t_1 + t_2)**2*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1)**2 + 1/3, 0),
+     Eq(-3*t_0*v_0**2/2 - 2*t_0*v_0*v_1 - 2*t_0*v_0*(-v_0 - v_1 + 1/2) - v_0**2*(1 - t_0)/2 - v_0*v_1*(t_0 + t_1) - v_0*v_1*(-t_0 - t_1 + 1) - v_0*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_0*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*v_1**2*(t_0 + t_1)/2 - v_1**2*(-t_0 - t_1 + 1)/2 - 2*v_1*(t_0 + t_1)*(-v_0 - v_1 + 1/2) - v_1*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_1*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2)**2/2 - (-v_0 - v_1 + 1/2)**2*(-t_0 - t_1 - t_2 + 1)/2 + 1/6, 0)]
+
+
+And now let's see whether it works
+
+```python
+res=[it.simplify().subs([
+    ('t_0',S(0.0792036964311956)),
+          ('t_1',S(0.35317290604977410)),
+          ('t_2',S(-0.0420650803577195)),
+          ('v_0',S(0.2095151066133620)),
+          ('v_1',S(-0.143851773179818))
+         ]) for it in S64conds]
+print(res)
+```
+
+    [True, True, True, False, False]
+
+
+```python
+print(S64conds)
+```
+
+    [True, True, Eq(-t_0*v_0 - v_0*(1 - t_0) - v_1*(t_0 + t_1) - v_1*(-t_0 - t_1 + 1) - (t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) + 1/2, 0), Eq(-t_0**2*v_0 - v_0*(1 - t_0)**2 - v_1*(t_0 + t_1)**2 - v_1*(-t_0 - t_1 + 1)**2 - (t_0 + t_1 + t_2)**2*(-v_0 - v_1 + 1/2) - (-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1)**2 + 1/3, 0), Eq(-3*t_0*v_0**2/2 - 2*t_0*v_0*v_1 - 2*t_0*v_0*(-v_0 - v_1 + 1/2) - v_0**2*(1 - t_0)/2 - v_0*v_1*(t_0 + t_1) - v_0*v_1*(-t_0 - t_1 + 1) - v_0*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_0*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*v_1**2*(t_0 + t_1)/2 - v_1**2*(-t_0 - t_1 + 1)/2 - 2*v_1*(t_0 + t_1)*(-v_0 - v_1 + 1/2) - v_1*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2) - v_1*(-v_0 - v_1 + 1/2)*(-t_0 - t_1 - t_2 + 1) - 3*(t_0 + t_1 + t_2)*(-v_0 - v_1 + 1/2)**2/2 - (-v_0 - v_1 + 1/2)**2*(-t_0 - t_1 - t_2 + 1)/2 + 1/6, 0)]
+
+
+## Complex Hermitian Methods where one set of coefficients is real
+
+In this section we check our new hermitian methods where one set of coefficients is real.
+
+### CHR_3 3
+
+```python
+avec=[*symarray('a',4)]
+bvec=[*symarray('b',4)]
+tvec=[
+    avec[0]+I*bvec[0],
+    avec[1]+I*bvec[1],
+    avec[1]-I*bvec[1],
+    avec[0]-I*bvec[0],
+]
+vvec=[*symarray('v',4)]
+vvec[1]=1-2*vvec[0]
+vvec[3]=0
+vvec[2]=vvec[0]
+print("Indeterminates: ",tvec,vvec)
+CHR33conds=CreateConditions(3,tvec,vvec)
+display(CHR33conds)
+```
+
+    Indeterminates:  [a_0 + I*b_0, a_1 + I*b_1, a_1 - I*b_1, a_0 - I*b_0] [v_0, 1 - 2*v_0, v_0, 0]
+
+
+
+    [Eq(2*a_0 + 2*a_1, 1),
+     True,
+     Eq(-v_0*(a_0 + I*b_0) - v_0*(a_0 + 2*a_1 + I*b_0) - (1 - 2*v_0)*(a_0 + a_1 + I*b_0 + I*b_1) + 1/2, 0),
+     Eq(-v_0*(a_0 + I*b_0)**2 - v_0*(a_0 + 2*a_1 + I*b_0)**2 - (1 - 2*v_0)*(a_0 + a_1 + I*b_0 + I*b_1)**2 + 1/3, 0),
+     Eq(-3*v_0**2*(a_0 + I*b_0)/2 - v_0**2*(a_0 + 2*a_1 + I*b_0)/2 - v_0*(1 - 2*v_0)*(a_0 + I*b_0) - v_0*(1 - 2*v_0)*(a_0 + a_1 + I*b_0 + I*b_1) - (1 - 2*v_0)**2*(a_0 + a_1 + I*b_0 + I*b_1)/2 + 1/6, 0)]
+
+
+```python
+res=[it.simplify().subs([
+    ('a_0',3*S(1)/S(24)),
+          ('a_1',3*S(1)/S(8)),
+      ('b_0',-Pow(3,S(1)/S(2))/S(24)),
+          ('b_1',Pow(3,S(1)/S(2))/S(8)),
+          ('v_0',S(1)/S(3))
+         ]).simplify() for it in S64conds]
+print(res)
+```
+
+    [True, True, True, True, True]
+
+
+### CHR_5 4
+
+### CHR_9 5
+
+### CHR_15 6
