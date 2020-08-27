@@ -206,6 +206,48 @@ print(res)
 
 ### CHR_5 4
 
+```python
+avec=[*symarray('a',6)]
+bvec=[*symarray('b',6)]
+tvec=[
+    avec[0]+I*bvec[0],
+    avec[1]+I*bvec[1],
+    avec[1]-I*bvec[1],
+    avec[0]-I*bvec[0],
+]
+print("Indeterminates: ",tvec,vvec)
+CHR54conds=CreateConditions(4,tvec,vvec)
+display(CHR54conds)
+```
+
 ### CHR_9 5
 
+```python
+avec=[*symarray('a',10)]
+bvec=[*symarray('b',10)]
+tvec=[
+    avec[0]+I*bvec[0],
+    avec[1]+I*bvec[1],
+    avec[1]-I*bvec[1],
+    avec[0]-I*bvec[0],
+]
+print("Indeterminates: ",tvec,vvec)
+CHR95conds=CreateConditions(5,tvec,vvec)
+display(CHR95conds)
+```
+
 ### CHR_15 6
+
+```python
+avec=[*symarray('a',16)]
+bvec=[*symarray('b',16)]
+tvec=[
+    avec[0]+I*bvec[0],
+    avec[1]+I*bvec[1],
+    avec[1]-I*bvec[1],
+    avec[0]-I*bvec[0],
+]
+print("Indeterminates: ",tvec,vvec)
+CHR156conds=CreateConditions(6,tvec,vvec)
+display(CHR156conds)
+```

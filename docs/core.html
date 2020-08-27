@@ -298,6 +298,13 @@ indexgenerator: (optional) by default we use indexgenerator for the Lyndon indic
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Having all the functions available we can compare the reductions due to the Lyndon indices in comparison to the Hall Basis.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -307,8 +314,10 @@ indexgenerator: (optional) by default we use indexgenerator for the Lyndon indic
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">avec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
 <span class="n">bvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Equations in the Lyndon Basis&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">CreateConditions</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">avec</span><span class="p">,</span><span class="n">bvec</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=========================&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Equations in the Hall Basis&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">CreateConditions</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">avec</span><span class="p">,</span><span class="n">bvec</span><span class="p">,</span><span class="n">CreateMuVectors</span><span class="p">))</span>
 </pre></div>
 
@@ -322,8 +331,10 @@ indexgenerator: (optional) by default we use indexgenerator for the Lyndon indic
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[Eq(a_0 + a_1 + a_2, 1), Eq(-b_0 - b_1 - b_2 + 1, 0), Eq(-a_0*b_0 - b_1*(a_0 + a_1) - b_2 + 1/2, 0), Eq(-a_0**2*b_0 - b_1*(a_0 + a_1)**2 - b_2 + 1/3, 0), Eq(-a_0*b_0**2/2 - a_0*b_0*b_1 - a_0*b_0*b_2 - b_1**2*(a_0 + a_1)/2 - b_1*b_2*(a_0 + a_1) - b_2**2/2 + 1/6, 0)]
+<pre>Equations in the Lyndon Basis
+[Eq(a_0 + a_1 + a_2, 1), Eq(-b_0 - b_1 - b_2 + 1, 0), Eq(-a_0*b_0 - b_1*(a_0 + a_1) - b_2 + 1/2, 0), Eq(-a_0**2*b_0 - b_1*(a_0 + a_1)**2 - b_2 + 1/3, 0), Eq(-a_0*b_0**2/2 - a_0*b_0*b_1 - a_0*b_0*b_2 - b_1**2*(a_0 + a_1)/2 - b_1*b_2*(a_0 + a_1) - b_2**2/2 + 1/6, 0)]
 =========================
+Equations in the Hall Basis
 [Eq(a_0 + a_1 + a_2, 1), Eq(-b_0 - b_1 - b_2 + 1, 0), Eq(-a_0*b_0 - b_1*(a_0 + a_1) - b_2 + 1/2, 0), Eq(-a_0**2*b_0 - b_1*(a_0 + a_1)**2 - b_2 + 1/3, 0), Eq(-b_0**2/2 - b_0*b_1 - b_0*b_2 - b_1**2/2 - b_1*b_2 - b_2**2/2 + 1/2, 0), Eq(-a_0*b_0**2/2 - a_0*b_0*b_1 - a_0*b_0*b_2 - b_1**2*(a_0 + a_1)/2 - b_1*b_2*(a_0 + a_1) - b_2**2/2 + 1/6, 0), Eq(-a_0*b_0**2/2 - b_0*b_1*(a_0 + a_1) - b_0*b_2 - b_1**2*(a_0 + a_1)/2 - b_1*b_2 - b_2**2/2 + 1/3, 0), Eq(-b_0**3/6 - b_0**2*b_1/2 - b_0**2*b_2/2 - b_0*b_1**2/2 - b_0*b_1*b_2 - b_0*b_2**2/2 - b_1**3/6 - b_1**2*b_2/2 - b_1*b_2**2/2 - b_2**3/6 + 1/6, 0)]
 </pre>
 </div>

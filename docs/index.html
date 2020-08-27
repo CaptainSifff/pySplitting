@@ -563,18 +563,99 @@ Since it's a symmetric method it is sufficient to work with the third order equa
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
+<span class="n">bvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
+<span class="n">tvec</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indeterminates: &quot;</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">CHR54conds</span><span class="o">=</span><span class="n">CreateConditions</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">CHR54conds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="CHR_9-5">CHR_9 5<a class="anchor-link" href="#CHR_9-5"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">bvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">tvec</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indeterminates: &quot;</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">CHR95conds</span><span class="o">=</span><span class="n">CreateConditions</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">CHR95conds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="CHR_15-6">CHR_15 6<a class="anchor-link" href="#CHR_15-6"> </a></h3>
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">16</span><span class="p">)]</span>
+<span class="n">bvec</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">symarray</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">16</span><span class="p">)]</span>
+<span class="n">tvec</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">avec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">I</span><span class="o">*</span><span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indeterminates: &quot;</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">CHR156conds</span><span class="o">=</span><span class="n">CreateConditions</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">tvec</span><span class="p">,</span><span class="n">vvec</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">CHR156conds</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 
