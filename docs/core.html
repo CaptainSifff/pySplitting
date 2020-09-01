@@ -116,9 +116,8 @@ nb_path: "00_core.ipynb"
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="alpha" class="doc_header"><code>alpha</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L62" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>alpha</code>(<strong><code>lam</code></strong>)</p>
 </blockquote>
-<p>The alpha factor
-This determines the real alpha coefficient as given by Thalhammer and elaborated by Blanes.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>lam : A multiindex</p>
+<p>The alpha factor. This determines the real alpha coefficient as given by Thalhammer and elaborated by Blanes.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>lam : A multiindex of integers.</p>
 <h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>Rational: alpha(lam)</p>
 
 </div>
@@ -166,7 +165,7 @@ This determines the real alpha coefficient as given by Thalhammer and elaborated
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="CreateMuVectors" class="doc_header"><code>CreateMuVectors</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L82" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CreateMuVectors</code>(<strong><code>p</code></strong>, <strong><code>k</code></strong>)</p>
+<h4 id="CreateMuVectors" class="doc_header"><code>CreateMuVectors</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L81" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CreateMuVectors</code>(<strong><code>p</code></strong>, <strong><code>k</code></strong>)</p>
 </blockquote>
 <p>This function creates the set of possible $$\mu$$ vectors.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>p : the considered order
@@ -201,9 +200,9 @@ k : 1 &lt;=k&lt;=p</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="CreateLyndonIndices" class="doc_header"><code>CreateLyndonIndices</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L102" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CreateLyndonIndices</code>(<strong><code>p</code></strong>, <strong><code>k</code></strong>)</p>
+<h4 id="CreateLyndonIndices" class="doc_header"><code>CreateLyndonIndices</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L101" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CreateLyndonIndices</code>(<strong><code>p</code></strong>, <strong><code>k</code></strong>)</p>
 </blockquote>
-<p>This function creates the set of Lyndon indices</p>
+<p>This function creates the set of Lyndon indices.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>p : the considered order
 k : 1 &lt;=k&lt;=p</p>
 <h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>array : A list of Lyndon multiindices</p>
@@ -236,19 +235,14 @@ k : 1 &lt;=k&lt;=p</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="CreateEquation" class="doc_header"><code>CreateEquation</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L139" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CreateEquation</code>(<strong><code>mu</code></strong>, <strong><code>bvec</code></strong>, <strong><code>cvec</code></strong>)</p>
+<h4 id="CreateEquation" class="doc_header"><code>CreateEquation</code><a href="https://github.com/CaptainSifff/pySplitting/tree/master/pySplitting/core.py#L138" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>CreateEquation</code>(<strong><code>mu</code></strong>, <strong><code>bvec</code></strong>, <strong><code>cvec</code></strong>)</p>
 </blockquote>
-<p>This function gives the coefficient for a particular multiindex mu.
-   It is the coefficient of a Len (mu) long product of iterated
-   commutators [A, B]_(mu_k).</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2>
-<pre><code>mu : a multiindex
-bvec : a string of symbols
-cvec : a string of symbols(usually the partial sums of the avec)
-
-Returns
--------
-expr : a symbolic expression, a polynomial in terms of the contents of bvec and cvec</code></pre>
+<p>This function gives the coefficient for a particular multiindex mu.</p>
+<p>It is the real coefficient of a Len(mu) long product of iterated commutators [A, B]_(mu_k).</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>mu : a multiindex
+bvec : a string of symbols.
+cvec : a string of symbols(usually the partial sums of the avec).</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>expr : a symbolic expression, a polynomial in terms of the contents of bvec and cvec.</p>
 
 </div>
 

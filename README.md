@@ -215,6 +215,8 @@ tvec=[
     avec[1]-I*bvec[1],
     avec[0]-I*bvec[0],
 ]
+vvec=[*symarray('v',6)]
+vvec[5]=0
 print("Indeterminates: ",tvec,vvec)
 CHR54conds=CreateConditions(4,tvec,vvec)
 display(CHR54conds)
@@ -231,6 +233,8 @@ tvec=[
     avec[1]-I*bvec[1],
     avec[0]-I*bvec[0],
 ]
+vvec=[*symarray('v',10)]
+vvec[9]=0
 print("Indeterminates: ",tvec,vvec)
 CHR95conds=CreateConditions(5,tvec,vvec)
 display(CHR95conds)
@@ -247,6 +251,8 @@ tvec=[
     avec[1]-I*bvec[1],
     avec[0]-I*bvec[0],
 ]
+vvec=[*symarray('v',16)]
+vvec[15]=0
 print("Indeterminates: ",tvec,vvec)
 CHR156conds=CreateConditions(6,tvec,vvec)
 display(CHR156conds)

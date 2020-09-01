@@ -61,12 +61,11 @@ def isstrictlyascending(lam):
 # Cell
 def alpha(lam):
     """
-    The alpha factor
-    This determines the real alpha coefficient as given by Thalhammer and elaborated by Blanes.
+    The alpha factor. This determines the real alpha coefficient as given by Thalhammer and elaborated by Blanes.
 
     Parameters
     ----------
-    lam : A multiindex
+    lam : A multiindex of integers.
 
     Returns
     -------
@@ -100,7 +99,7 @@ def CreateMuVectors(p,k):
 
 # Cell
 def CreateLyndonIndices(p,k):
-    """This function creates the set of Lyndon indices
+    """This function creates the set of Lyndon indices.
 
     Parameters
     ----------
@@ -138,18 +137,18 @@ def CreateLyndonIndices(p,k):
 # Cell
 def CreateEquation(mu, bvec, cvec):
     """This function gives the coefficient for a particular multiindex mu.
-   It is the coefficient of a Len (mu) long product of iterated
-   commutators [A, B]_(mu_k).
 
-Parameters
+    It is the real coefficient of a Len(mu) long product of iterated commutators [A, B]_(mu_k).
+
+    Parameters
     ----------
     mu : a multiindex
-    bvec : a string of symbols
-    cvec : a string of symbols(usually the partial sums of the avec)
+    bvec : a string of symbols.
+    cvec : a string of symbols(usually the partial sums of the avec).
 
     Returns
     -------
-    expr : a symbolic expression, a polynomial in terms of the contents of bvec and cvec
+    expr : a symbolic expression, a polynomial in terms of the contents of bvec and cvec.
 """
     k = len(mu)
     retval1=1
