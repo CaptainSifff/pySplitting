@@ -2,6 +2,8 @@
 > A project to have python code that generates the order conditions for exponential splitting methods with the equations of M. Thalhammer given in the 2008 paper "High-Order Exponential Operator Splitting Methods for Time-Dependent Schrödinger Equations" available at ´https://epubs.siam.org/doi/abs/10.1137/060674636?mobileUi=0´
 
 
+This repo is binder enabled: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CaptainSifff/pySplitting/master)
+
 ## How to use
 
 This is a python project that generates the equations for the order conditions such that exponential splitting methods of the given order or with the desired features can be designed. To that end we utilize sympy to get symbolic expressions that can be further processed.
