@@ -172,6 +172,8 @@ We see that the first and second order equations are already fulfilled. For the 
 
 ## Complex Hermitian Methods where one set of coefficients is real
 
+As outlined in [arXiv:2009.04491](https://arxiv.org/abs/2009.04491) certain quantum Monte Carlo methods
+necessitate special hermitian methods and the new family of complex hermitian methods with one real set of coefficients was introduced.
 In this section we check our new hermitian methods where one set of coefficients is real.
 
 ### CHR_3 3
