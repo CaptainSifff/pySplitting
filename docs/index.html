@@ -37,6 +37,25 @@ nb_path: "index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exposition">Exposition<a class="anchor-link" href="#Exposition"> </a></h2><p>Exponential Splitting methods are an a numerical technique which can for instance be used for solving ordinary differential equations:
+$$
+\dot{y}(\tau) = -H y(\tau)
+$$
+If $H = T + V$ , i. e. has a substructure with two components we can approximate the solution as 
+$$
+y(\tau) = e^{-H \tau} = e^{-T \tau } e^{-V \tau} + \mathcal{O}(\tau^2)
+$$
+We can achieve higher order methods by using more expontials as in
+$$
+y(t) = \prod_i e^{t_i T \tau} e^{v_i V \tau} + \mathcal{O}(\tau^{p+1})
+$$
+Determining the systems of polynomials that $t_i$ and $v_i$ have to fulfill is the purpose of this library/notebook.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
 </div>
 </div>

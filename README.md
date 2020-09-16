@@ -4,6 +4,21 @@
 
 This repo is binder enabled: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/CaptainSifff/pySplitting/master)
 
+## Exposition
+Exponential Splitting methods are an a numerical technique which can for instance be used for solving ordinary differential equations:
+$$
+\dot{y}(\tau) = -H y(\tau)
+$$
+If $H = T + V$ , i. e. has a substructure with two components we can approximate the solution as 
+$$
+y(\tau) = e^{-H \tau} = e^{-T \tau } e^{-V \tau} + \mathcal{O}(\tau^2)
+$$
+We can achieve higher order methods by using more expontials as in
+$$
+y(t) = \prod_i e^{t_i T \tau} e^{v_i V \tau} + \mathcal{O}(\tau^{p+1})
+$$
+Determining the systems of polynomials that $t_i$ and $v_i$ have to fulfill is the purpose of this library/notebook.
+
 ## How to use
 
 This is a python project that generates the equations for the order conditions such that exponential splitting methods of the given order or with the desired features can be designed. To that end we utilize sympy to get symbolic expressions that can be further processed.
